@@ -228,8 +228,8 @@ body {
 
 /* Botón Flotante */
 .whatsapp-float {
-    position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%);
-    background: #25d366; color: white; padding: 12px 30px; border-radius: 50px;
+    position: fixed; bottom: 8px; left: 50%; transform: translateX(-50%);
+    background: #25d366; color: white; padding: 8px 20px; border-radius: 50px;
     text-decoration: none; font-weight: 800; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     display: flex; align-items: center; gap: 10px; z-index: 2000; white-space: nowrap;
 }

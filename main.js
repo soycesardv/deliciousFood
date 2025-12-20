@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             // 200px de margen para detectar bien la sección al bajar
-            if (scrollY >= (sectionTop - 50)) {
+            if (scrollY >= (sectionTop - 200)) {
                 current = section.getAttribute('id');
             }
         });

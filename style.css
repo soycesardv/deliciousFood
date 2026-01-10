@@ -23,24 +23,15 @@ body {
     width: 100%;
     background-image: url('img/fondo-burger.png');
     background-size: cover;
-    
-    /* CAMBIO CLAVE: Alineamos la imagen un poco más abajo para asegurar que se vea la burger */
-    background-position: center bottom; 
-    
+    background-position: center 0%; 
     display: flex;
     flex-direction: column;
-    
-    /* CAMBIO CLAVE: Ya no usamos 'center', ahora alineamos al inicio (arriba) */
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: center;
-    
     position: relative;
     text-align: center;
     color: var(--blanco);
-    
-    /* Agregamos padding arriba para que el logo respire (aprox 10-12% de la pantalla) */
-    padding-top: 12vh; 
-    
+    padding-top: 10vh;
     transform: translateZ(0); 
     will-change: transform;
 }
@@ -54,10 +45,10 @@ body {
        - Transparente en el medio (0.1) para que brille la hamburguesa.
        - Negro abajo (0.9) para que resalte la flecha y el menú.
     */
-    background: linear-gradient(to bottom, 
-        rgba(0,0,0,0.9) 0%, 
-        rgba(0,0,0,0.2) 40%, 
-        rgba(0,0,0,0.0) 60%, 
+    background: linear-gradient(to bottom,
+        rgba(0,0,0,0.9) 20%, 
+        rgba(0,0,0,0.1) 60%, 
+        rgba(0,0,0,0.1) 80%, 
         rgba(0,0,0,0.9) 100%);
         
     z-index: 1;
@@ -72,21 +63,19 @@ body {
 }
 
 .big-logo {
-    width: 140px; /* Reducido de 180px a 140px para más elegancia */
+    width: 180px;
     height: auto;
-    margin-bottom: 15px; 
+    margin-bottom: 30px;
     border-radius: 50%;
     box-shadow: 0 0 35px rgba(255, 215, 0, 0.3); 
-    border: 2px solid rgba(255, 215, 0, 0.5); 
     
 }
 
 .brand-title {
-    font-size: 3.5rem; /* Un poco más grande para mpiacto */
-    font-weight: 800; /* Grueso pero no excesivo */
-    letter-spacing: 2px; /* Espacio sutil */
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    /* Sombra suave y difuminada (Glow) en lugar de sólida */
     text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
     margin-bottom: 10px;
     line-height: 1.1;
@@ -94,16 +83,20 @@ body {
 .yellow-text { color: var(--amarillo); }
 
 .brand-subtitle {
-    font-size: 1.1rem;
-    letter-spacing: 6px; /* MUCHO espacio entre letras = Elegancia pura */
-    font-weight: 400; /* Letra más delgada y fina */
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    font-weight: 500;
     text-transform: uppercase;
-    opacity: 0.9;
-    border-top: 1px solid var(--amarillo); /* Una línea delgada dorada arriba */
-    border-bottom: 1px solid var(--amarillo); /* Una línea delgada dorada abajo */
-    padding: 10px 20px; /* Espacio para las líneas */
-    margin-top: 10px;
-    display: inline-block; /* Para que el borde se ajuste al texto */
+    padding: 10px 100%;
+    border-top: solid 1px yellow;
+    border-bottom: solid 1px yellow;
+    position: absolute;
+    bottom: 85px;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    margin: 0;
 }
 
 /* Animación del Logo */

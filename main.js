@@ -1,50 +1,53 @@
-/* main.js OPTIMIZADO */
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. LÓGICA DE NAVEGACIÓN (SCROLL SPY) ---
+    // --- 1. LÓGICA DE NAVEGACIÓN (SCROLL SPY MEJORADO) ---
     const navLinks = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('section');
     const navScrollContainer = document.querySelector('.nav-scroll');
     
-    let lastId = ''; // Variable para recordar la última sección activa
+    let lastId = '';
 
-    window.addEventListener('scroll', () => {
+    const onScroll = () => {
         let current = '';
-        
-        // Detectar en qué sección estamos
+        const scrollPosition = window.scrollY + 180; // Ajuste para detectar la sección un poco antes
+
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            // Ajustamos el margen de detección (150px antes de llegar)
-            if (scrollY >= (sectionTop - 150)) {
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });
 
-        // Solo hacemos cambios si la sección ha cambiado (ESTO MEJORA EL RENDIMIENTO)
         if (current !== lastId) {
             lastId = current;
 
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                // Buscamos el link que corresponde a la sección actual
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
                     
-                    // Mover el menú horizontalmente de forma suave
-                    // Usamos un cálculo simple en lugar de scrollIntoView para evitar saltos
-                    const linkRect = link.getBoundingClientRect();
-                    const containerRect = navScrollContainer.getBoundingClientRect();
+                    // --- CORRECCIÓN DEL BUG ---
+                    // En lugar de scrollIntoView (que salta la página), calculamos el centro manualmente
+                    const containerWidth = navScrollContainer.offsetWidth;
+                    const linkLeft = link.offsetLeft;
+                    const linkWidth = link.offsetWidth;
+
+                    // Matemáticas para centrar el botón suavemente
+                    const scrollTarget = linkLeft - (containerWidth / 2) + (linkWidth / 2);
                     
-                    // Si el link está fuera de vista, lo movemos
-                    if (linkRect.left < containerRect.left || linkRect.right > containerRect.right) {
-                        link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    }
+                    navScrollContainer.scrollTo({
+                        left: scrollTarget,
+                        behavior: 'smooth'
+                    });
                 }
             });
         }
-    });
+    };
 
-    // --- 2. MANEJO DE IMÁGENES ROTAS (LOGO FALLBACK) ---
+    window.addEventListener('scroll', onScroll);
+
+    // --- 2. MANEJO DE IMÁGENES ROTAS ---
     const ponerLogo = (img) => {
         img.src = 'img/logo.jpg'; 
         img.style.objectFit = 'contain';
@@ -53,17 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         img.onerror = null;
     };
 
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
+    document.querySelectorAll('img').forEach(img => {
         img.onerror = () => ponerLogo(img);
-        if (img.complete && img.naturalHeight === 0) {
-            ponerLogo(img);
-        }
+        if (img.complete && img.naturalHeight === 0) ponerLogo(img);
     });
 
     // --- 3. MODAL DE PRODUCTO ---
     const modal = document.getElementById('product-modal');
-    // Solo ejecutamos esto si el modal existe en el HTML
     if (modal) {
         const modalImg = document.getElementById('modal-img');
         const modalTitle = document.getElementById('modal-title');
@@ -76,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cards.forEach(card => {
             card.style.cursor = 'pointer';
             card.addEventListener('click', (e) => {
-                // Evitamos abrir si tocan un botón dentro de la tarjeta
                 if(e.target.closest('button') || e.target.closest('a')) return;
 
                 const imgSrc = card.querySelector('img')?.src || 'img/logo.jpg';
@@ -98,8 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cerrarModal = () => modal.classList.remove('active');
         if(closeModalBtn) closeModalBtn.addEventListener('click', cerrarModal);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) cerrarModal();
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) cerrarModal(); });
     }
 });

@@ -14,7 +14,6 @@
 
 html, body {
     max-width: 100%;
-    overflow-x: hidden; /* Esto bloquea el movimiento lateral */
     position: relative; /* Ayuda a contener elementos absolutos */
 }
 
@@ -22,19 +21,20 @@ body {
     background-color: var(--gris-fondo);
     padding-top: 0;
     padding-bottom: 80px;
+    overflow-x: hidden; 
+    position: relative;
+    width: 100%;
 }
 
 .hero-fullscreen {
-    height: 100vh;
+    height: 100vh;      /* Fallback para navegadores viejos */
+    height: 100dvh;     /* 'dvh' se adapta a la barra del navegador móvil dinámicamente */
+    
+    /* El resto de tu configuración de imagen... */
     width: 100%;
-    background-image: url('img/fondo-burger.png');
+    background-image: url('img/fondo-burger.jpg');
     background-size: cover;
-    
-    /* CAMBIO CLAVE: 'center top' o 'center 0%' */
-    /* Esto alinea la parte SUPERIOR de la foto con el borde SUPERIOR de la pantalla. */
-    /* Resultado: Se ve más el fondo vacío de arriba y la hamburguesa baja. */
-    background-position: center 70px; 
-    
+    background-position: center 70px; /* Tu ajuste de posición */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -42,7 +42,7 @@ body {
     position: relative;
     text-align: center;
     color: var(--blanco);
-    padding-top: 5vh;
+    padding-top: 8vh;
     transform: translateZ(0); 
     will-change: transform;
 }

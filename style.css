@@ -21,17 +21,26 @@ body {
 .hero-fullscreen {
     height: 100vh;
     width: 100%;
-    /* background-image: linear-gradient(var(--amarillo),var(--negro)); */
-    background-image: url('img/background.jpg');
+    background-image: url('img/fondo-burger.png');
     background-size: cover;
-    background-position: center;
+    
+    /* CAMBIO CLAVE: Alineamos la imagen un poco más abajo para asegurar que se vea la burger */
+    background-position: center bottom; 
+    
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
+    /* CAMBIO CLAVE: Ya no usamos 'center', ahora alineamos al inicio (arriba) */
+    justify-content: flex-start; 
     align-items: center;
+    
     position: relative;
     text-align: center;
     color: var(--blanco);
+    
+    /* Agregamos padding arriba para que el logo respire (aprox 10-12% de la pantalla) */
+    padding-top: 12vh; 
+    
     transform: translateZ(0); 
     will-change: transform;
 }
@@ -39,7 +48,19 @@ body {
 .overlay-dark {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(#00000000,#00000065);
+    
+    /* TRUCO DE DISEÑO: 
+       - Negro arriba (0.8) para que resalte el logo.
+       - Transparente en el medio (0.1) para que brille la hamburguesa.
+       - Negro abajo (0.9) para que resalte la flecha y el menú.
+    */
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0.9) 0%, 
+        rgba(0,0,0,0.2) 40%, 
+        rgba(0,0,0,0.0) 60%, 
+        rgba(0,0,0,0.9) 100%);
+        
+    z-index: 1;
 }
 
 .hero-content {
@@ -51,29 +72,38 @@ body {
 }
 
 .big-logo {
-    width: 180px;
-    height: auto; /* Importante para que no recalcule dimensiones */
-    margin-bottom: 20px;
+    width: 140px; /* Reducido de 180px a 140px para más elegancia */
+    height: auto;
+    margin-bottom: 15px; 
     border-radius: 50%;
-    box-shadow: 0 0 20px rgb(170, 142, 0); 
+    box-shadow: 0 0 35px rgba(255, 215, 0, 0.3); 
+    border: 2px solid rgba(255, 215, 0, 0.5); 
+    
 }
 
 .brand-title {
-    font-size: 3rem; /* Un poco más grande */
-    font-weight: 900;
-    letter-spacing: 1px;
-    /* Sombra sólida en lugar de difusa se ve más de diseño */
-    text-shadow: 4px 4px 0px rgba(0,0,0,0.8); 
-    margin-bottom: 5px;
+    font-size: 3.5rem; /* Un poco más grande para mpiacto */
+    font-weight: 800; /* Grueso pero no excesivo */
+    letter-spacing: 2px; /* Espacio sutil */
+    text-transform: uppercase;
+    /* Sombra suave y difuminada (Glow) en lugar de sólida */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+    margin-bottom: 10px;
+    line-height: 1.1;
 }
 .yellow-text { color: var(--amarillo); }
 
 .brand-subtitle {
-    font-size: 1.2rem;
-    letter-spacing: 4px; /* Mucho espacio entre letras es sinónimo de elegancia */
-    font-weight: 600;
-    text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+    font-size: 1.1rem;
+    letter-spacing: 6px; /* MUCHO espacio entre letras = Elegancia pura */
+    font-weight: 400; /* Letra más delgada y fina */
+    text-transform: uppercase;
     opacity: 0.9;
+    border-top: 1px solid var(--amarillo); /* Una línea delgada dorada arriba */
+    border-bottom: 1px solid var(--amarillo); /* Una línea delgada dorada abajo */
+    padding: 10px 20px; /* Espacio para las líneas */
+    margin-top: 10px;
+    display: inline-block; /* Para que el borde se ajuste al texto */
 }
 
 /* Animación del Logo */

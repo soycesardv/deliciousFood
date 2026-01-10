@@ -33,7 +33,7 @@ body {
     /* CAMBIO CLAVE: 'center top' o 'center 0%' */
     /* Esto alinea la parte SUPERIOR de la foto con el borde SUPERIOR de la pantalla. */
     /* Resultado: Se ve más el fondo vacío de arriba y la hamburguesa baja. */
-    background-position: center top; 
+    background-position: center 70px; 
     
     display: flex;
     flex-direction: column;

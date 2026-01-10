@@ -42,7 +42,7 @@ body {
     position: relative;
     text-align: center;
     color: var(--blanco);
-    padding-top: 10vh;
+    padding-top: 5vh;
     transform: translateZ(0); 
     will-change: transform;
 }

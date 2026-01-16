@@ -645,3 +645,38 @@ transform: scale(1.05);
     text-decoration: none; font-weight: 800; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     display: flex; align-items: center; gap: 10px; z-index: 2000; white-space: nowrap;
 }
+
+/* Botones de selección de tamaño de Pizza */
+.pizza-btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.size-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: 12px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--negro);
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.size-btn:hover {
+    background-color: var(--amarillo);
+    border-color: var(--amarillo);
+    transform: translateX(5px);
+}
+
+.size-btn .btn-price {
+    background: var(--negro);
+    color: var(--amarillo);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}

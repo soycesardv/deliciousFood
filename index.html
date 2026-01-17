@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <title>Menú Delicious Food Express</title>
     <link rel="preload" href="img/fondo-burger.webp" as="image"> 
     <link rel="stylesheet" href="style.css">
@@ -10,7 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-
     <header class="hero-fullscreen">
         <div class="overlay-dark"></div>
         
@@ -172,41 +174,70 @@
 
         <section id="perros" class="category-block">
             <h2 class="cat-title">🌭 Perros Calientes</h2>
-            <p class="cat-desc">¡Salchichas de la mejor calidad!</p>
             
-
-            <article class="product-card">
-                <div class="photo-frame"><img src="img/perro_tipo_1.jpeg" alt="Perro1"></div>
-                <div class="details">
-                    <h3>Tipo 1</h3>
-                    <p class="desc">Tocineta, maíz, cebolla, zanahoria, ripio  y salsas</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; margin-top: 20px;">
+                
+                <div class="reference-card" 
+                     data-title="Referencia: Perro Tipo 1"
+                     data-desc="Ingredientes: Tocineta, maíz, cebolla, zanahoria, ripio y salsas."
+                     style="cursor: pointer; text-align: center; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    
+                    <img src="img/perro_tipo_1.jpeg" alt="Referencia Tipo 1" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                    <h4 style="margin-bottom: 5px; color: var(--negro);">Tipo 1</h4>
+                    <p style="font-size: 0.85rem; color: #666; line-height: 1.4;">Tocineta, maíz, cebolla, zanahoria, ripio y salsas.</p>
                 </div>
-            </article>
-            <article class="product-card">
-                <div class="photo-frame"><img src="img/perro_tipo_2.jpeg" alt="Perro1"></div>
-                <div class="details">
-                    <h3>Tipo 2</h3>
-                    <p class="desc">Tocineta, queso mozzarella, huevo, jamón, ripio y salsas</p>
+                
+                <div class="reference-card"
+                     data-title="Referencia: Perro Tipo 2"
+                     data-desc="Ingredientes: Tocineta, queso mozzarella, huevo, jamón, ripio y salsas."
+                     style="cursor: pointer; text-align: center; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    
+                    <img src="img/perro_tipo_2.jpeg" alt="Referencia Tipo 2" style="width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+                    <h4 style="margin-bottom: 5px; color: var(--negro);">Tipo 2</h4>
+                    <p style="font-size: 0.85rem; color: #666; line-height: 1.4;">Tocineta, queso mozzarella, huevo, jamón, ripio y salsas.</p>
                 </div>
-            </article>
 
+            </div>
+
+            <h3 style="font-size: 1.2rem; margin-bottom: 15px; color: var(--negro);">Elige tu Salchicha:</h3>
+            
             <div class="grid-2-col">
-                <article class="mini-card">
+                
+                <article class="mini-card" 
+                    data-title="Hot Dog Alemán"
+                    data-desc="Salchicha Alemana de excelente calidad."
+                    data-label-1="Tipo 1" data-price-1="$20.500"
+                    data-label-2="Tipo 2" data-price-2="$20.500">
                     <h4>Hot Dog Alemán</h4>
                     <span class="price">$20.500</span>
                 </article>
-                <article class="mini-card">
+
+                <article class="mini-card" 
+                    data-title="Hot Dog Polaco"
+                    data-desc="Salchicha Polaca (Sabor ahumado intenso)."
+                    data-label-1="Tipo 1" data-price-1="$25.500"
+                    data-label-2="Tipo 2" data-price-2="$25.500">
                     <h4>Hot Dog Polaco</h4>
                     <span class="price">$25.500</span>
                 </article>
-                <article class="mini-card">
+
+                <article class="mini-card" 
+                    data-title="Hot Dog Kosako"
+                    data-desc="Salchicha Kosako (Picante 🌶️)."
+                    data-label-1="Tipo 1" data-price-1="$25.500"
+                    data-label-2="Tipo 2" data-price-2="$25.500">
                     <h4>Hot Dog Kosako</h4>
                     <p class="desc">Picante 🌶️</p>
                     <span class="price">$25.500</span>
                 </article>
-                <article class="mini-card">
+
+                <article class="mini-card" 
+                    data-title="Mini Hot Dog"
+                    data-desc="Perfecto para niños o poca hambre."
+                    data-label-1="Tipo 1" data-price-1="$13.000"
+                    data-label-2="Tipo 2" data-price-2="$13.000">
                     <h4>Mini Hot Dog</h4>
-                    <p class="desc">¡Más pequeño!</p>
+                    <p class="desc">Mas Pequeño!</p>
                     <span class="price">$13.000</span>
                 </article>
             </div>
@@ -244,32 +275,27 @@
             <h2 class="cat-title">🍖 Picadas Mixtas</h2>
             <p class="cat-desc">4 Proteínas (Solomo, Cerdo, Pollo, Chorizo), ensalada, aguacate, papas, queso (mozzarella, asado) y arepas.</p>
 
-            <article class="product-card">
-                <div class="photo-frame"><img src="img/picada.jpeg" alt="Salchipapa"></div>
+            <article class="product-card"
+                data-title="Picada Mixta"
+                data-desc="4 Proteínas: Solomo, Cerdo, Pollo, Chorizo. Acompañado de ensalada, aguacate, papas, queso y arepa."
+                
+                data-label-1="Personal"        data-price-1="$46.000"
+                data-label-2="Para 2 Personas" data-price-2="$84.000"
+                data-label-3="Para 4 Personas" data-price-3="$160.000">
+
+                <div class="photo-frame">
+                    <img src="img/picada.jpeg" alt="Picada Mixta">
+                </div>
+
                 <div class="details">
-                    <h3>Picada</h3>
-                    <p class="desc">Elige el tamaño a tu elección!!</p>
+                    <h3>Picada Mixta</h3>
+                    <p class="desc">Elige el tamaño ideal para ti o tu grupo.</p>
+                    <div class="price-list">
+                        <span class="price">Ver Tamaños</span>
+                    </div>
                 </div>
             </article>
 
-            <article class="product-card">
-                <div class="details" style="width: 100%;">
-                    <h3>Personal</h3>
-                    <span class="price">$46.000</span>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="details" style="width: 100%;">
-                    <h3>Para 2 Personas</h3>
-                    <span class="price">$84.000</span>
-                </div>
-            </article>
-            <article class="product-card">
-                <div class="details" style="width: 100%;">
-                    <h3>Para 4 Personas</h3>
-                    <span class="price">$160.000</span>
-                </div>
-            </article>
         </section>
 
         <div class="divider"></div>
@@ -406,7 +432,7 @@
                 <div class="photo-frame"><img src="img/clubhouse.jpeg" alt="Sandwich"></div>
                 <div class="details">
                     <h3>Club House</h3>
-                    <p class="desc">Dos pisos, carne mechada, pollo mechado, vegetales, jamón, queso, tocineta.</p>
+                    <p class="desc">Sándwich de dos pisos con Carne desmechada, Pollo desmechado, Lechuga, Tomate Cebolla caramelizada, Jamón, Queso mozzarella y Tocineta.</p>
                     <div class="price-list">
                         <span class="price">$40.500</span>
                         <p class="desc" style="margin: 10px 0 0 0; font-size: 0.9rem;">Sencillo: $32.500</p>
@@ -647,14 +673,14 @@
             <h2 class="cat-title">🥤 Bebidas Refrescantes</h2>
             
             <div class="drinks-grid">
-                <div class="drink-item"><i class="fas fa-wine-bottle"></i> Gaseosas</div>
-                <div class="drink-item"><i class="fas fa-tint"></i> Agua Brisa</div>
-                <div class="drink-item"><i class="fas fa-leaf"></i> Mr Tea</div>
-                <div class="drink-item"><i class="fas fa-wine-glass-alt"></i> Jugos Hit</div>
-                <div class="drink-item"><i class="fas fa-beer"></i> Cervezas</div>
-                <div class="drink-item"><i class="fas fa-bolt"></i> Gatorade</div>
-                <div class="drink-item"><i class="fas fa-glass-whiskey"></i> Malta</div>
-                <div class="drink-item"><i class="fas fa-cocktail"></i> Bretaña</div>
+                <div class="drink-item" data-price="" data-title="Gaseosa"><i class="fas fa-wine-bottle"></i>Gaseosa</div>
+                <div class="drink-item" data-price="" data-tile="Agua Brisa"><i class="fas fa-tint"></i> Agua Brisa</div>
+                <div class="drink-item" data-price="" data-title="Mr tea"><i class="fas fa-leaf"></i> Mr Tea</div>
+                <div class="drink-item" data-price="" data-title="Jugos Hit"><i class="fas fa-wine-glass-alt"></i> Jugos Hit</div>
+                <div class="drink-item" data-price="" data-title="Cervezas"><i class="fas fa-beer"></i> Cervezas</div>
+                <div class="drink-item" data-price="" data-title="Gatorade"><i class="fas fa-bolt"></i> Gatorade</div>
+                <div class="drink-item" data-price="" data-title="Malta"><i class="fas fa-glass-whiskey"></i> Malta</div>
+                <div class="drink-item" data-price="" data-title=""><i class="fas fa-cocktail"></i> Bretaña</div>
             </div>
 
             <div class="divider" style="margin: 30px 0; opacity: 0.5;"></div>
@@ -700,6 +726,8 @@
             
             <div class="modal-img-container">
                 <img src="" alt="Detalle Producto" id="modal-img">
+
+                <i id="modal-icon" class=""></i>
             </div>
             
             <div class="modal-info">
